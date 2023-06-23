@@ -2,7 +2,8 @@
 error_reporting(E_ALL & ~E_NOTICE);
 //var_dump($_POST["complexity"]);
 $result = $_POST["complexity"];           //complexity
-$symbol = $_POST['math_symbol'];
+//$symbol = $_POST['math_symbol'];
+
 if($result === "true"){
 $rand_1 = rand(1, 200);
 $rand_2 = rand(1, 200);
