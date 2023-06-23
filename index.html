@@ -9,12 +9,18 @@
   <title>mindCalc</title>
   <link rel="stylesheet" href="styles.css">
   <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet"
+    type="text/css" />
   <link rel="stylesheet" type="text/css" href="style.css" />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
@@ -22,7 +28,10 @@
   <div class="form-group text-center">
     <form id="myForm">
       <div>
-        <h6 class="qestionText"><?php  //include 'calculate.php'; ?><div id="answer"></div></h6>
+        <h6 class="qestionText">
+          <?php  //include 'calculate.php'; ?>
+          <div id="answer"></div>
+        </h6>
       </div>
 
 
@@ -37,8 +46,10 @@
   <label class="custom-control-label" for="customSwitch2">Disabled switch element</label>
 </div> -->
           <div class="col-sm-6 mx-auto">
-            <input type="number" id="client_answer" class="form-control narrow-input" name="client_answer" min="-1000" max="1000" size="3" autocomplete="off" onkeydown="if(event.keyCode==0 || event.keyCode==0) event.preventDefault()">
-           
+            <input type="number" id="client_answer" class="form-control narrow-input" name="client_answer" min="-1000"
+              max="1000" size="3" autocomplete="off"
+              onkeydown="if(event.keyCode==0 || event.keyCode==0) event.preventDefault()">
+
             <div class="custom-control custom-switch">
               <input type="checkbox" class="custom-control-input" id="Complicate">
               <label class="custom-control-label" for="Complicate">Усложнить</label>
@@ -57,29 +68,31 @@
         <input type="submit" class="btn btn-primary" value="Отправить" event.preventDefault() />
         <input type="button" class="btn btn-outline-secondary" value="очистить/обновить" onclick="location.reload()">
       </div>
-
-
-      <div id="response">
-
+      <div class="answer" id="response"> <!--answer-->
       </div>
     </form>
   </div>
 
+
+
+
+
+
   <script>
     var checkbox = document.getElementById('Complicate');
-//проверить есть ли в пременной данные о флажке
-    checkbox.addEventListener('change', function() {
+    //проверить есть ли в пременной данные о флажке
+    checkbox.addEventListener('change', function () {
       if (this.checked) {
         var div = document.getElementById('myDiv');
         div.innerHTML = 'Теперь в вопросе числа от 1 до 200';
         localStorage.setItem('checkboxState', 'checked');
         var MakeItHarder = document.getElementById("Complicate").value;
-      
+
       } else {
         var div = document.getElementById('myDiv');
         div.innerHTML = 'Теперь в вопросе числа от 1 до 100';
         localStorage.setItem('checkboxState', 'unchecked');
-        
+
       }
     });
 
@@ -87,44 +100,44 @@
 
     if (savedState === 'checked') {
       checkbox.checked = true;
-      var  stateOfcomplexity =true;
+      var stateOfcomplexity = true;
     } else {
       checkbox.checked = false;
-      var stateOfcomplexity =false;
-      
+      var stateOfcomplexity = false;
+
     }
-    
+
   </script>
 
-<script>
-// Создаем объект XMLHttpRequest
-      var xhr2 = new XMLHttpRequest();
-      // Настраиваем запрос
-      xhr2.open("POST", "calculate.php", true);
-      xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-      // Отправляем запрос
-      xhr2.send("complexity=" + encodeURIComponent(stateOfcomplexity));
+  <script>
+    // Создаем объект XMLHttpRequest
+    var xhr2 = new XMLHttpRequest();
+    // Настраиваем запрос
+    xhr2.open("POST", "calculate.php", true);
+    xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    // Отправляем запрос
+    xhr2.send("complexity=" + encodeURIComponent(stateOfcomplexity));
 
-      // Обработка ответа от сервера
-      xhr2.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-          // Получаем элемент, который будет содержать ответ от сервера
-          var responseContainer = document.getElementById("answer");
-          // Заполняем элемент ответом от сервера
-          
-          
-          var responseText = xhr2.responseText;
-          var parts = responseText.split(",");
-           // Получить первую часть
-          var part1 = parts[0];
-          var resultInput = document.getElementById("result");
-          resultInput.value = part1;
-         // Получить вторую часть
-          var part2 = parts[1];
-          responseContainer.innerHTML = part2;
-        }
+    // Обработка ответа от сервера
+    xhr2.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        // Получаем элемент, который будет содержать ответ от сервера
+        var responseContainer = document.getElementById("answer");
+        // Заполняем элемент ответом от сервера
+
+
+        var responseText = xhr2.responseText;
+        var parts = responseText.split(",");
+        // Получить первую часть
+        var part1 = parts[0];
+        var resultInput = document.getElementById("result");
+        resultInput.value = part1;
+        // Получить вторую часть
+        var part2 = parts[1];
+        responseContainer.innerHTML = part2;
       }
-</script>
+    }
+  </script>
 
 
   <!--
@@ -133,8 +146,8 @@
   <script>
     // Получаем форму и добавляем обработчик события "submit"
     var form = document.getElementById("myForm");
-    
-    form.addEventListener("submit", function(event) {
+
+    form.addEventListener("submit", function (event) {
       // Отменяем стандартное поведение формы (перезагрузку страницы)
       event.preventDefault();
       // Получаем данные формы
@@ -148,10 +161,10 @@
       xhr.open("POST", "process-form.php", true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       // Отправляем запрос
-      xhr.send("client_answer=" + encodeURIComponent(client_answer) + "&result=" + encodeURIComponent(result) + "&complexity=" + encodeURIComponent( stateOfcomplexity));
+      xhr.send("client_answer=" + encodeURIComponent(client_answer) + "&result=" + encodeURIComponent(result));
 
       // Обработка ответа от сервера
-      xhr.onreadystatechange = function() {
+      xhr.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
           // Получаем элемент, который будет содержать ответ от сервера
           var responseContainer = document.getElementById("response");

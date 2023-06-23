@@ -1,22 +1,28 @@
 .narrow-input {
-    width: 60%;
+    width: 50%;
     
   }
   .container {
-    padding-top: 40px;
+    padding-top: 30px;
   }
   .form-group {
     padding-top: 40px;
   }
   .btn-send{
-    padding-top: 10%;
-    padding-right: 10%;
-    padding-bottom: 10%;
-    padding-left: 10%;
+    padding-top: 5%;
+    padding-right: 8%;
+    padding-bottom: 5%;
+    padding-left: 8%;
 }
   .qestionText{
-    font-size: 60px;
+    font-size: 30px;
   }
   .custom-switch{
     width: 30%;
+  }
+  .answer{
+    margin: 0px;
+  }
+  .custom-control-label{
+    margin: 10px;
   }
