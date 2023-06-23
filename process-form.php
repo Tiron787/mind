@@ -1,5 +1,5 @@
 <?php
-//var_dump($_POST["client_answer"]);
+var_dump($_POST);
 if (isset($_POST["client_answer"]) && !empty($_POST["client_answer"])) {
     if($_POST["client_answer"] === $_POST["result"]){
         echo 'Ответ : ' . $_POST["result"];
